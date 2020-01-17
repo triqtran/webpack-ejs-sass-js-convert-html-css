@@ -1,0 +1,19 @@
+{% macro seo(metahead) %}
+
+{# set variables for injection #}
+{% set labelPage = metahead.title %}
+{% set charset = metahead.charset %}
+{% set metaTags = metahead.metaTags %}
+{% set links = metahead.links %}
+
+{# render #}
+<title>{{labelPage}}</title>
+<meta charset="{{charset}}" />
+{% for meta in metaTags %}
+<meta name="{{meta.name}}" content="{{meta.content}}">
+{% endfor %}
+{% for link in links %}
+<link rel="{{link.rel}}" type="{{link.type}}" href="{{link.href}}">
+{% endfor %}
+
+{% endmacro %}

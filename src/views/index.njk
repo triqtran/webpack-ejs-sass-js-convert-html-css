@@ -1,0 +1,27 @@
+{% extends 'layouts/main.njk' %}
+{% import 'layouts/metahead.njk' as meta %}
+{% import 'layouts/header.njk' as header %}
+{% import 'layouts/footer.njk' as footer %}
+{% import 'components/button.njk' as btn %}
+
+{% block metahead %}
+  {{meta.seo(metahead)}}
+{% endblock %}
+
+{% block header %}
+  {{ header.navbar(['List 1', 'List 2', 'List 3']) }}
+{% endblock %}
+
+{% block content %}
+{# write html/css page into here #}
+<h3>Base path: {{basePath}}</h3>
+<img src="{{ static('./images/webpack.svg') }}" />
+{% for item in data.list %}
+<h4>Item = { name: {{item.name}}, link: {{item.link}} }</h4>
+{% endfor %}
+{{ btn.submit() }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.render() }}
+{% endblock %}

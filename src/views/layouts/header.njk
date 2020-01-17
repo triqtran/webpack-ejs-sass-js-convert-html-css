@@ -1,0 +1,9 @@
+{% macro navbar(list = []) %}
+<header>
+  <nav>
+    {% for item in list %}
+    <a>{{item}}</a>
+    {% endfor %}
+  </nav>
+</header>
+{% endmacro %}

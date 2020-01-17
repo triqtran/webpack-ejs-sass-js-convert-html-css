@@ -1,0 +1,22 @@
+{% extends 'layouts/main.njk' %}
+{% import 'layouts/metahead.njk' as metahead %}
+{% import 'layouts/header.njk' as header %}
+{% import 'layouts/footer.njk' as footer %}
+
+{% block metahead %}
+  {{metahead.seo()}}
+{% endblock %}
+
+{% block header %}
+  {{ header.navbar(['List 1', 'List 2', 'List 3']) }}
+{% endblock %}
+
+{% block content %}
+{# write html/css page into here #}
+<h3>Base path: {{basePath}}</h3>
+<img src="{{ static('./images/nunjucks.png') }}" />
+{% endblock %}
+
+{% block footer %}
+  {{ footer.render() }}
+{% endblock %}
